@@ -1,6 +1,6 @@
-import ChatUser from '../models/user.models.js'; // ✅ Correct if the file is named ChatUser.js
+import ChatUser from '../models/user.models.js'; 
 import bcrypt from 'bcrypt';
-import { genrateToken } from "../lib/utlis.js"; // Adjust path as needed
+import { genrateToken } from "../lib/utlis.js"; 
 import cloudinary from '../lib/cloudinary.js';
 
 export const signup = async (req, res) => {
@@ -34,7 +34,7 @@ export const signup = async (req, res) => {
       username,
       bio,
       password: hashedPassword,
-      avatar, // Should contain { public_id, url }
+      avatar,
     });
 if(newUser)
 
@@ -42,7 +42,7 @@ if(newUser)
     {
     await newUser.save();
 
-    genrateToken(newUser._id, res); // Assuming this sets cookie or header
+    genrateToken(newUser._id, res);
 
     res.status(201).json({
       msg: "User registered successfully",
